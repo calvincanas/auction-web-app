@@ -11,12 +11,12 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- Material Kit CSS -->
-    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
+    <link href="assets/css/material-dashboard.css?v=2.2.2" rel="stylesheet" />
 </head>
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="{{ asset('img/sidebar-3.jpg') }}">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="./assets/img/sidebar-3.jpg">
         <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -98,18 +98,18 @@
     </div>
 </div>
 <!--   Core JS Files   -->
-<script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/core/bootstrap-material-design') }}.min.js" type="text/javascript"></script>
-<script src="{{ asset('js/plugins/moment.min.js') }}"></script>
+<script src="{{ asset('core/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('core/popper.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('core/bootstrap-material-design') }}.min.js" type="text/javascript"></script>
+<script src="{{ asset('plugins/moment.min.js') }}"></script>
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-<script src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/nouislider.min.js') }}" type="text/javascript"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('js/material-dashboard.js') }}" type="text/javascript"></script>
+<script src="{{ asset('material-dashboard.js?v="2.2.2") }} type="text/javascript"></script>
 </body>
 
 </html>
