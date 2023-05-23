@@ -31,15 +31,7 @@
             </a>
         </div>
         <div class="sidebar-wrapper">
-            <ul class="nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="javascript:;">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <!-- your sidebar here -->
-            </ul>
+            @include('components.sidebar')
         </div>
         <div class="sidebar-background"></div>
     </div>
@@ -71,7 +63,7 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
-                <!-- your content here -->
+                @yield('content')
             </div>
         </div>
         <footer class="footer">

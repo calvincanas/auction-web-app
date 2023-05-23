@@ -77,6 +77,15 @@
 
                             </div>
                             <div class="card-body ">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -84,7 +93,7 @@
                           <i class="material-icons">email</i>
                         </span>
                       </div>
-                      <input type="email" class="form-control" placeholder="Email...">
+                      <input type="email" name="email" class="form-control" placeholder="Email...">
                     </div>
                   </span>
                                 <span class="bmd-form-group">
@@ -94,7 +103,7 @@
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Password...">
+                      <input type="password" name="password" class="form-control" placeholder="Password...">
                     </div>
                   </span>
                             </div>
