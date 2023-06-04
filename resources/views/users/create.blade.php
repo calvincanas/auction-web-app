@@ -6,32 +6,37 @@
             <div class="card ">
                 <div class="card-header card-header-rose card-header-icon">
                     <div class="card-icon">
-                        <i class="material-icons">mail_outline</i>
+                        <i class="material-icons">person</i>
                     </div>
-                    <h4 class="card-title">Stacked Form</h4>
+                    <h4 class="card-title">Create a user</h4>
                 </div>
                 <div class="card-body ">
-                    <form method="#" action="#">
+                    <form action="{{ route('users.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <label for="exampleEmail" class="bmd-label-floating">Email Address</label>
-                            <input type="email" class="form-control" id="exampleEmail">
+                            <label for="name" class="bmd-label-floating">Name</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                            @if($errors->first('name'))
+                                <label class="error" for="name">{{ $errors->first('name') }}</label>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <label for="examplePass" class="bmd-label-floating">Password</label>
-                            <input type="password" class="form-control" id="examplePass">
+                            <label for="email" class="bmd-label-floating">Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                            @if($errors->first('email'))
+                                <label class="error" for="email">{{ $errors->first('email') }}</label>
+                            @endif
                         </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value=""> Subscribe to newsletter
-                                <span class="form-check-sign">
-                          <span class="check"></span>
-                        </span>
-                            </label>
+                        <div class="form-group">
+                            <label for="password" class="bmd-label-floating">Password</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                            @if($errors->first('password'))
+                                <label class="error" for="password">{{ $errors->first('password') }}</label>
+                            @endif
                         </div>
+                        <button type="submit" class="btn btn-fill btn-rose">Create</button>
+                        <a href="{{ route('users.index') }}" class="btn btn-fill btn">Cancel</a>
                     </form>
-                </div>
-                <div class="card-footer ">
-                    <button type="submit" class="btn btn-fill btn-rose">Submit</button>
                 </div>
             </div>
         </div>

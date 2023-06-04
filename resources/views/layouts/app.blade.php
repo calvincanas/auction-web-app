@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Hello, world!</title>
+    <title>Kahera APP</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -56,6 +56,12 @@
                             </a>
                         </li>
                         <!-- your navbar here -->
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="nav-link">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -102,6 +108,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('js/material-dashboard.js') }}" type="text/javascript"></script>
+@yield('footer-js')
 </body>
 
 </html>

@@ -27,6 +27,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::resource('users', UserController::class);
+
+    Route::get('users/datatable', [UserController::class, 'datatable'])->name('users.datatable');
+    Route::get('users/{user}/confirm-delete', [UserController::class, 'confirmDelete'])->name('users.confirm-delete');
+    Route::resource('users', UserController::class)
+        ->except(['show']);
 });
 
