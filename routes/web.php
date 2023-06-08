@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('users/datatable', [UserController::class, 'datatable'])->name('users.datatable');
     Route::get('users/{user}/confirm-delete', [UserController::class, 'confirmDelete'])->name('users.confirm-delete');
-    Route::resource('users', UserController::class)
-        ->except(['show']);
+    Route::resource('users', UserController::class)->except(['show']);
+
+    Route::resource('products', ProductController::class)->except(['show']);
 });
 
