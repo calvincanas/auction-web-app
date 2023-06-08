@@ -18,5 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'admin@kahera.test'
         ]);
+
+        User::factory()->count(100)->create();
     }
 }

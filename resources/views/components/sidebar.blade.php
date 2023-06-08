@@ -7,8 +7,14 @@
     </li>
     <li class="nav-item @if(Request::routeIs('users.*')) active @endif">
         <a class="nav-link" href="{{ route('users.index') }}">
-            <i class="material-icons">table</i>
+            <i class="material-icons">people</i>
             <p>Users</p>
+        </a>
+    </li>
+    <li class="nav-item @if(Request::routeIs('products.*')) active @endif">
+        <a class="nav-link" href="{{ route('products.index') }}">
+            <i class="material-icons">store</i>
+            <p>Products</p>
         </a>
     </li>
 </ul>
