@@ -35,6 +35,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('products/datatable', [ProductController::class, 'datatable'])->name('products.datatable');
     Route::get('products/{product}/confirm-delete', [ProductController::class, 'confirmDelete'])->name('products.confirm-delete');
-    Route::resource('products', ProductController::class)->except(['show']);
+    Route::resource('products', ProductController::class);
 });
 

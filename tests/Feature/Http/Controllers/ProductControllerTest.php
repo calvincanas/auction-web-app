@@ -94,6 +94,19 @@ class ProductControllerTest extends TestCase
                  ->assertViewIs('products.confirm-delete');
     }
 
+    public function test_show(): void
+    {
+        $product = Product::factory()->create();
+
+        $response = $this->actingAs($this->admin)->get(route('products.show', [
+            'product' => $product
+        ]));
+
+        $response->assertOk()
+            ->assertViewIs('products.show')
+            ->assertSeeText($product->name);
+    }
+
     public function test_destroy(): void
     {
         $product = Product::factory()->create();

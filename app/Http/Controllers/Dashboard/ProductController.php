@@ -74,11 +74,24 @@ class ProductController extends Controller
         ]);
     }
 
+    public function show(Product $product)
+    {
+        return view('products.show', [
+            'product' => $product
+        ]);
+    }
+
     public function datatable(Request $request)
     {
         $data = Product::query();
         return DataTables::of($data)
             ->addColumn('action', content: function ($row) {
+                $showButton = sprintf(
+                    '<a href="%s" class="%s">%s</a>',
+                    route('products.show', $row),
+                    'btn btn-primary',
+                    'Show',
+                );
                 $editButton = sprintf(
                     '<a href="%s" class="%s">%s</a>',
                     route('products.edit', $row),
@@ -93,7 +106,7 @@ class ProductController extends Controller
                 );
 
                 return <<<ACTION
-                    $editButton $deleteButton 
+                    $showButton $editButton $deleteButton 
                 ACTION;
             })
             ->make();
