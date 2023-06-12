@@ -1,4 +1,4 @@
-# Internal Auction System
+# (WIP) Auction Web App
 
 ## As Super Admin
 - Can manage admins and customers.
