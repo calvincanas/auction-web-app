@@ -38,3 +38,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::resource('products', ProductController::class);
 });
 
+Route::get('event', function() {
+   \App\Events\ShoutoutToUser::dispatch(auth()->user());
+});
+

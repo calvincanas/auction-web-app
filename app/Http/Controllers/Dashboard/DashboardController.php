@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Events\ShoutoutToUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        ShoutoutToUser::dispatch(auth()->user());
         return view('dashboard.index');
     }
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- Material Kit CSS -->
     <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
+    @vite('resources/js/app.js')
 </head>
 
 <body>
