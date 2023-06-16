@@ -22,6 +22,9 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+
+});
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
@@ -36,9 +39,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('products/datatable', [ProductController::class, 'datatable'])->name('products.datatable');
     Route::get('products/{product}/confirm-delete', [ProductController::class, 'confirmDelete'])->name('products.confirm-delete');
     Route::resource('products', ProductController::class);
+
+
 });
 
-Route::get('event', function() {
-   \App\Events\ShoutoutToUser::dispatch(auth()->user());
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('new-bid', \App\Http\Controllers\NewBidController::class);
 });
 

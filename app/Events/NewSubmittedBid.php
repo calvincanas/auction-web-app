@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Models\User;
+use App\Models\BidEntry;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -11,29 +11,28 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ShoutoutToUser implements ShouldBroadcast
+class NewSubmittedBid implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public User $user;
+    public $bidData;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(User $user)
+    public function __construct(array $bidData)
     {
-        $this->user = $user;
+        $this->bidData = $bidData;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return PrivateChannel
      */
-    public function broadcastOn(): array
+    public function broadcastOn(): Channel
     {
-        return [
-            new PrivateChannel('users.'.$this->user->id),
-        ];
+        // TODO: change this later on
+        return new PrivateChannel('auction');
     }
 }
