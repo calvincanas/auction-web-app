@@ -13,7 +13,9 @@ class AuthController extends Controller
 {
     public function viewLogin()
     {
-        return view('auth.login');
+        return view('auth.login', [
+            'siteTitle' => 'Login Page'
+        ]);
     }
 
     public function processLogin(Request $request)
