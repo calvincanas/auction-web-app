@@ -84,15 +84,15 @@ class UserController extends Controller
         return DataTables::of($data)
             ->addColumn('action', content: function ($row) {
                 $editButton = sprintf(
-                    '<a href="%s" class="%s">%s</a>',
+                    '<a href="%s" class="%s"><i class="material-icons">edit</i> %s</a>',
                     route('users.edit', $row),
-                    'btn btn-warning',
+                    'btn bg-transparent text-dark border border-danger',
                     'Edit',
                 );
                 $deleteButton = sprintf(
-                    '<a href="%s" class="%s">%s</a>',
+                    '<a href="%s" class="%s"><i class="material-icons">delete</i> %s</a>',
                     route('users.confirm-delete', $row),
-                    'btn btn-danger',
+                    'btn bg-transparent text-dark border border-danger',
                     'Delete',
                 );
                 $content = <<<ACTION

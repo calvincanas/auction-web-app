@@ -2,33 +2,34 @@
 <html lang="en">
 
 <head>
-    <title>Kahera APP</title>
+    <title>
+        {{ $siteTitle ?? 'Online Live Auction' }}
+    </title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
     <!-- Material Kit CSS -->
-    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet"/>
     @vite('resources/js/app.js')
 </head>
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="./assets/img/sidebar-3.jpg">
-        <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-      -->
+    <div class="sidebar" data-color="azure" data-background-color="white">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                CT
-            </a>
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+            <a href="#" class="simple-text logo-mini"></a>
+            <a href="{{ route('dashboard.index') }}" class="simple-text logo-normal">
+                {{ $siteTitle ?? 'Auction' }}
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -41,9 +42,10 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">Dashboard</a>
+                    <a class="navbar-brand" href="javascript:">{{ $pageTitle ?? 'Page Title' }}</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="navbar-toggler-icon icon-bar"></span>
                     <span class="navbar-toggler-icon icon-bar"></span>
@@ -51,12 +53,6 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:;">
-                                <i class="material-icons">notifications</i> Notifications
-                            </a>
-                        </li>
-                        <!-- your navbar here -->
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
@@ -88,7 +84,8 @@
                     &copy;
                     <script>
                         document.write(new Date().getFullYear())
-                    </script>, made with <i class="material-icons">favorite</i> by
+                    </script>
+                    , made with <i class="material-icons">favorite</i> by
                     <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
                 </div>
 
