@@ -2,23 +2,21 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card ">
                 <div class="card-header card-header-rose card-header-icon">
                     <div class="card-icon">
-                        <i class="material-icons">person</i>
+                        <i class="material-icons">warning</i>
                     </div>
-                    <h4 class="card-title">Confirm Delete</h4>
+                    <h4 class="card-title">Delete Confirmation</h4>
                 </div>
-                <div class="card-body ">
+                <div class="card-body">
+                    <h4 class="card-title my-4">Are you sure you want to delete user: <strong>{{ $user->name }}</strong></h4>
                     <form action="{{ route('users.destroy', ['user' => $user]) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <h3>Delete Confirmation </h3>
-                        <p>#{{ $user->id }}</p>
-                        <p>{{ $user->name }}</p>
-                        <input type="submit" class="btn btn-fill btn-rose" value="Delete" />
-                        <a href="{{ route('users.index') }}" class="btn btn-fill btn">Cancel</a>
+                        <button type="submit" class="btn btn-rose">Delete</button>
+                        <a href="{{ route('users.index') }}" class="btn">Cancel</a>
                     </form>
                 </div>
             </div>

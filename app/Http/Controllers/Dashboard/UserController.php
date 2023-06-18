@@ -86,19 +86,18 @@ class UserController extends Controller
                 $editButton = sprintf(
                     '<a href="%s" class="%s"><i class="material-icons">edit</i> %s</a>',
                     route('users.edit', $row),
-                    'btn bg-transparent text-dark border border-danger',
+                    'btn bg-transparent text-info border border-info',
                     'Edit',
                 );
                 $deleteButton = sprintf(
                     '<a href="%s" class="%s"><i class="material-icons">delete</i> %s</a>',
                     route('users.confirm-delete', $row),
-                    'btn bg-transparent text-dark border border-danger',
+                    'btn bg-transparent text-danger border border-danger',
                     'Delete',
                 );
-                $content = <<<ACTION
+                return <<<ACTION
                     $editButton $deleteButton 
                 ACTION;
-                return $content;
             })
             ->make();
     }
