@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\BidEntry;
+use App\Models\Product;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,13 +16,15 @@ class NewSubmittedBid implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $product;
     public $bidData;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(array $bidData)
+    public function __construct(array $bidData, Product $product)
     {
+        $this->product = $product;
         $this->bidData = $bidData;
     }
 
@@ -32,7 +35,6 @@ class NewSubmittedBid implements ShouldBroadcast
      */
     public function broadcastOn(): Channel
     {
-        // TODO: change this later on
-        return new PrivateChannel('auction');
+        return new PrivateChannel('bid.' .  $this->product->id);
     }
 }

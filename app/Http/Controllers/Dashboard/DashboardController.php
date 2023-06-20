@@ -15,14 +15,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $total = BidEntry::query()->count();
-        $lastBiddger = BidEntry::query()->orderByDesc('created_at')->first();
-
-        $data = [
-            'amount' => $total * 20,
-            'last_bidder' => $lastBiddger->user,
-        ];
-
-        return view('dashboard.index', $data);
+        return view('dashboard.index');
     }
 }

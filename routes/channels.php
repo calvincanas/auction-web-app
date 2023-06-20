@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('auction', function ($user) {
+Broadcast::channel('bid.{productId}', function($user, $productId) {
     return true;
 });

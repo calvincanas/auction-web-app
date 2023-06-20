@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
+use App\Models\BidEntry;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -76,8 +77,13 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        $total = BidEntry::where('product_id', $product->id)->count();
+        $lastBidder = BidEntry::where('product_id', $product->id)->orderByDesc('created_at')->first();
+
         return view('products.show', [
-            'product' => $product
+            'product' => $product,
+            'total' => $total * 20,
+            'lastBidder' => $lastBidder,
         ]);
     }
 
@@ -87,21 +93,21 @@ class ProductController extends Controller
         return DataTables::of($data)
             ->addColumn('action', content: function ($row) {
                 $showButton = sprintf(
-                    '<a href="%s" class="%s">%s</a>',
+                    '<a href="%s" class="%s"><i class="material-icons">gavel</i> %s</a>',
                     route('products.show', $row),
-                    'btn btn-primary',
-                    'Show',
+                    'btn bg-transparent text-info border border-info',
+                    'Bid',
                 );
                 $editButton = sprintf(
-                    '<a href="%s" class="%s">%s</a>',
+                    '<a href="%s" class="%s"><i class="material-icons">edit</i> %s</a>',
                     route('products.edit', $row),
-                    'btn btn-warning',
+                    'btn bg-transparent text-warning border border-warning',
                     'Edit',
                 );
                 $deleteButton = sprintf(
-                    '<a href="%s" class="%s">%s</a>',
+                    '<a href="%s" class="%s"><i class="material-icons">delete</i> %s</a>',
                     route('products.confirm-delete', $row),
-                    'btn btn-danger',
+                    'btn bg-transparent text-danger border border-danger',
                     'Delete',
                 );
 

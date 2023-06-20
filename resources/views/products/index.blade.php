@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('products.create') }}" class="btn btn-warning">Create Product</a>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 text-right">
+            <a href="{{ route('products.create') }}" class="btn btn-info"><i class="material-icons">add</i> Create Product</a>
+        </div>
+    </div>
     <div class="card">
-        <div class="card-header card-header-primary card-header-icon">
+        <div class="card-header card-header-rose card-header-icon">
             <div class="card-icon">
                 <i class="material-icons">store</i>
             </div>

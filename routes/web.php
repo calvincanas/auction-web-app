@@ -22,11 +22,10 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 
-Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
-
-});
+Route::redirect('/', '/dashboard/');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -44,6 +43,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('new-bid', \App\Http\Controllers\NewBidController::class);
+    Route::get('new-bid/{product}', \App\Http\Controllers\NewBidController::class);
 });
 
