@@ -20,7 +20,7 @@
                         </button>
                     </div>
                     <h4 class="card-title">Website Views</h4>
-                    <p class="card-category">Last Campaign Performance</p>
+                    <p class="card-category">[Work In Progress]</p>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -47,8 +47,8 @@
                         </button>
                     </div>
                     <h4 class="card-title">Daily Sales</h4>
-                    <p class="card-category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                    <p class="card-category">[Work In Progress]</p>
+
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -75,7 +75,7 @@
                         </button>
                     </div>
                     <h4 class="card-title">Completed Tasks</h4>
-                    <p class="card-category">Last Campaign Performance</p>
+                    <p class="card-category">[Work In Progress]</p>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
